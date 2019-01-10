@@ -1,0 +1,44 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<html>
+
+<head>
+    <script src="./model.js"></script>
+    
+    <script src='http://www.midijs.net/lib/midi.js'></script>
+
+    <style>
+        .casilla {
+            width: 30vw;
+            height: 30vw; float:left; 
+            border: 1px solid gray;
+            margin: 2px}
+            
+        </style>
+</head>
+
+<body touchstart="juego.botonPulsado()" id="main">
+    <div id="0" class="casilla"></div>
+    <div id="1" class="casilla"></div>
+    <div id="2" class="casilla"></div>
+    <div id="3" class="casilla"></div>
+    <div id="4" class="casilla"></div>
+    <div id="5" class="casilla"></div>
+
+    <audio id="audio" src="beep-08b.mp3" type="audio/mpeg"></audio>
+</body>
+<script type="text/javascript">
+window.onload= () => {
+    let juego = new ReflejosGame();
+
+    juego.comenzarJuego();
+
+    document.getElementById("main").addEventListener('touchstart', process_touchstart, false);
+
+    function process_touchstart(){
+        juego.botonPulsado();
+    }
+}
+</script>
+
+</html>
